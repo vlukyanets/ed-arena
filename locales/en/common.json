@@ -1,0 +1,25 @@
+{
+  "general": {
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "home": {
+    "roleSelection": {
+      "title": "Welcome to Ed Arena",
+      "teacher": "Login as Teacher",
+      "studentRoom": "Enter Class via Code",
+      "studentSelf": "Self Study"
+    }
+  },
+  "nav": {
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "language": {
+      "en": "English",
+      "uk": "Ukrainian"
+    }
+  }
+}
