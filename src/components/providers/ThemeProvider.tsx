@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { ThemeProvider as MuiThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import { ThemeProvider as MuiThemeProvider, createTheme, CssBaseline, Box } from '@mui/material';
 
 type ThemeMode = 'light' | 'dark' | 'system';
 
@@ -72,7 +72,16 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     <ThemeContext.Provider value={{ mode, setMode: changeMode }}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-        {children}
+        <Box
+          sx={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            bgcolor: 'background.default',
+          }}
+        >
+          {children}
+        </Box>
       </MuiThemeProvider>
     </ThemeContext.Provider>
   );

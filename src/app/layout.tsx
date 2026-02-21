@@ -18,10 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body
+        className={inter.className}
+        style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}
+      >
         <AppProviders>
           <Navbar />
-          {children}
+          <main style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>{children}</main>
         </AppProviders>
       </body>
     </html>
