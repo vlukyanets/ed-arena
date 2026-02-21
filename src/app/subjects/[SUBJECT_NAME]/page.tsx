@@ -76,7 +76,7 @@ export default function SubjectTrainersPage() {
                     {user && (
                       <Button
                         variant="contained"
-                        color="secondary"
+                        color="primary"
                         size="small"
                         onClick={(e) => handleCreateRoom(trainer.id, e)}
                         sx={{ mt: 2 }}

@@ -29,64 +29,65 @@ export default function CreateRoomPage() {
   };
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '80vh',
-        p: 3,
-      }}
-    >
+    <Box sx={{ p: 3 }}>
       <BackButton />
-      <Paper elevation={3} sx={{ p: 5, borderRadius: 3, maxWidth: 500, width: '100%' }}>
-        <Typography
-          variant="h5"
-          component="h1"
-          gutterBottom
-          textAlign="center"
-          fontWeight="bold"
-          sx={{ mb: 4 }}
-        >
-          {t('createRoom.title', { defaultValue: 'Create New Room' })}
-        </Typography>
-
-        <Typography
-          variant="subtitle1"
-          gutterBottom
-          textAlign="center"
-          color="text.secondary"
-          sx={{ mb: 4 }}
-        >
-          {SUBJECT_NAME} / {TRAINER_NAME}
-        </Typography>
-
-        <form onSubmit={handleCreate}>
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={saveResults}
-                onChange={(e) => setSaveResults(e.target.checked)}
-                color="primary"
-              />
-            }
-            label={t('createRoom.saveResultsLabel', {
-              defaultValue: 'Save student results to database',
-            })}
-            sx={{ mb: 4, display: 'block', textAlign: 'center' }}
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="secondary"
-            fullWidth
-            size="large"
-            sx={{ py: 1.5, borderRadius: 2 }}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '70vh',
+        }}
+      >
+        <Paper elevation={3} sx={{ p: 5, borderRadius: 3, maxWidth: 500, width: '100%' }}>
+          <Typography
+            variant="h5"
+            component="h1"
+            gutterBottom
+            textAlign="center"
+            fontWeight="bold"
+            sx={{ mb: 4 }}
           >
-            {t('createRoom.createBtn', { defaultValue: 'Generate Room Code' })}
-          </Button>
-        </form>
-      </Paper>
+            {t('createRoom.title', { defaultValue: 'Create New Room' })}
+          </Typography>
+
+          <Typography
+            variant="subtitle1"
+            gutterBottom
+            textAlign="center"
+            color="text.secondary"
+            sx={{ mb: 4 }}
+          >
+            {SUBJECT_NAME} / {TRAINER_NAME}
+          </Typography>
+
+          <form onSubmit={handleCreate}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={saveResults}
+                  onChange={(e) => setSaveResults(e.target.checked)}
+                  color="primary"
+                />
+              }
+              label={t('createRoom.saveResultsLabel', {
+                defaultValue: 'Save student results to database',
+              })}
+              sx={{ mb: 4, display: 'block', textAlign: 'center' }}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              size="large"
+              sx={{ py: 1.5, borderRadius: 2 }}
+            >
+              {t('createRoom.createBtn', { defaultValue: 'Generate Room Code' })}
+            </Button>
+          </form>
+        </Paper>
+      </Box>
     </Box>
   );
 }

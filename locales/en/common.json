@@ -35,6 +35,29 @@
     "noTrainers": "No trainers found for this subject.",
     "createRoomBtn": "Create Room"
   },
+  "trainers": {
+    "math": {
+      "addition": {
+        "title": "Addition",
+        "desc": "Practice basic addition operations."
+      },
+      "equations": {
+        "title": "Equations",
+        "desc": "Solve linear and quadratic equations."
+      }
+    },
+    "physics": {
+      "kinematics": {
+        "title": "Kinematics",
+        "desc": "Study motion, velocity, and acceleration."
+      }
+    }
+  },
+  "createRoom": {
+    "title": "Create New Room",
+    "saveResultsLabel": "Save student results to database",
+    "createBtn": "Generate Room Code"
+  },
   "nav": {
     "signIn": "Sign in as Teacher",
     "signOut": "🚪 Sign Out",

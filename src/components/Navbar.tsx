@@ -57,18 +57,15 @@ export default function Navbar() {
   const handleUserMenuOpen = (e: MouseEvent<HTMLElement>) => setUserAnchorEl(e.currentTarget);
   const handleUserMenuClose = () => setUserAnchorEl(null);
 
-  // Language: flag emoji from map, name from i18n
   const langCode = LANG_FLAGS[i18n.language] ? i18n.language : i18n.language?.split('-')[0];
   const currentFlag = LANG_FLAGS[langCode] ?? '🌐';
 
-  // Theme: show actual resolved icon (system resolves to light/dark)
   const effectiveTheme = mode === 'system' ? resolvedMode : mode;
   const themeIcon = THEME_ICONS[effectiveTheme] ?? THEME_ICONS[mode] ?? '💻';
 
   return (
     <AppBar position="static" color="inherit" elevation={1}>
       <Toolbar>
-        {/* Ed Arena → root link */}
         <Typography
           variant="h5"
           component={Link}
@@ -85,7 +82,6 @@ export default function Navbar() {
         </Typography>
 
         <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-          {/* Language — flag of current language */}
           <IconButton
             color="inherit"
             onClick={handleLangMenuOpen}
@@ -101,7 +97,6 @@ export default function Navbar() {
             ))}
           </Menu>
 
-          {/* Theme — actual resolved icon */}
           <IconButton
             color="inherit"
             onClick={handleThemeMenuOpen}
@@ -123,7 +118,6 @@ export default function Navbar() {
             )}
           </Menu>
 
-          {/* User avatar when logged in, or nothing */}
           {user ? (
             <>
               <Tooltip title={user.name ?? user.email ?? ''}>
