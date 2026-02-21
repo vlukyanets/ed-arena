@@ -18,12 +18,14 @@ import { useAuth } from './providers/AuthProvider';
 import { signIn, signOut } from 'next-auth/react';
 import Link from 'next/link';
 
+type ThemeMode = 'light' | 'dark' | 'system';
+
 const LANG_FLAGS: Record<string, string> = {
   en: '🇬🇧',
   uk: '🇺🇦',
 };
 
-const THEME_ICONS: Record<string, string> = {
+const THEME_ICONS: Record<ThemeMode, string> = {
   light: '☀️',
   dark: '🌙',
   system: '💻',
@@ -47,7 +49,7 @@ export default function Navbar() {
 
   const handleThemeMenuOpen = (e: MouseEvent<HTMLElement>) => setThemeAnchorEl(e.currentTarget);
   const handleThemeMenuClose = () => setThemeAnchorEl(null);
-  const changeTheme = (newMode: 'light' | 'dark' | 'system') => {
+  const changeTheme = (newMode: ThemeMode) => {
     setMode(newMode);
     handleThemeMenuClose();
   };
@@ -112,7 +114,7 @@ export default function Navbar() {
             open={Boolean(themeAnchorEl)}
             onClose={handleThemeMenuClose}
           >
-            {(Object.entries(THEME_ICONS) as [keyof typeof THEME_ICONS, string][]).map(
+            {(Object.entries(THEME_ICONS) as [ThemeMode, string][]).map(
               ([key, icon]) => (
                 <MenuItem key={key} onClick={() => changeTheme(key)}>
                   {icon} {t(`nav.theme.${key}`, { defaultValue: key })}
