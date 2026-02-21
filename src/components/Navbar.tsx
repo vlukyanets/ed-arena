@@ -50,10 +50,10 @@ export default function Navbar() {
           </IconButton>
           <Menu anchorEl={langAnchorEl} open={Boolean(langAnchorEl)} onClose={handleLangMenuClose}>
             <MenuItem onClick={() => changeLanguage('en')}>
-              {t('nav.language.en', { defaultValue: 'English' })}
+              {t('nav.language.en', { defaultValue: '🇬🇧 English' })}
             </MenuItem>
             <MenuItem onClick={() => changeLanguage('uk')}>
-              {t('nav.language.uk', { defaultValue: 'Ukrainian' })}
+              {t('nav.language.uk', { defaultValue: '🇺🇦 Ukrainian' })}
             </MenuItem>
           </Menu>
 
@@ -66,13 +66,13 @@ export default function Navbar() {
             onClose={handleThemeMenuClose}
           >
             <MenuItem onClick={() => changeTheme('light')}>
-              {t('nav.theme.light', { defaultValue: 'Light' })}
+              {t('nav.theme.light', { defaultValue: '☀️ Light' })}
             </MenuItem>
             <MenuItem onClick={() => changeTheme('dark')}>
-              {t('nav.theme.dark', { defaultValue: 'Dark' })}
+              {t('nav.theme.dark', { defaultValue: '🌙 Dark' })}
             </MenuItem>
             <MenuItem onClick={() => changeTheme('system')}>
-              {t('nav.theme.system', { defaultValue: 'System' })}
+              {t('nav.theme.system', { defaultValue: '💻 System' })}
             </MenuItem>
           </Menu>
         </Box>

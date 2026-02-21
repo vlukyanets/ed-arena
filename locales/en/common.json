@@ -7,19 +7,25 @@
     "roleSelection": {
       "title": "Welcome to Ed Arena",
       "teacher": "Login as Teacher",
+      "teacherTitle": "🏫 Teacher",
+      "teacherDesc": "Create rooms, monitor student progress, and assign tests.",
       "studentRoom": "Enter Class via Code",
-      "studentSelf": "Self Study"
+      "studentTitle": "🎓 Student",
+      "studentDesc": "Enter a class using a code provided by your teacher.",
+      "studentSelf": "Self Study",
+      "selfStudyTitle": "📚 Self Study",
+      "selfStudyDesc": "Practice independently without saving results."
     }
   },
   "nav": {
     "theme": {
-      "light": "Light",
-      "dark": "Dark",
-      "system": "System"
+      "light": "☀️ Light",
+      "dark": "🌙 Dark",
+      "system": "💻 System"
     },
     "language": {
-      "en": "English",
-      "uk": "Ukrainian"
+      "en": "🇬🇧 English",
+      "uk": "🇺🇦 Ukrainian"
     }
   }
 }

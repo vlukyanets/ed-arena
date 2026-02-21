@@ -51,7 +51,7 @@ export default function SubjectTrainersPage() {
       ) : (
         <Grid container spacing={3}>
           {trainers.map((trainer) => (
-            <Grid item xs={12} md={6} key={trainer.id}>
+            <Grid size={{ xs: 12, md: 6 }} key={trainer.id}>
               <Card
                 elevation={3}
                 sx={{

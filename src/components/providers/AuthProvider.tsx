@@ -1,28 +1,17 @@
 'use client';
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { User, onAuthStateChanged } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
 
-interface AuthContextType {
-  user: User | null;
-  loading: boolean;
-}
-
-const AuthContext = createContext<AuthContextType>({ user: null, loading: true });
-
-export const useAuth = () => useContext(AuthContext);
+import { ReactNode } from 'react';
+import { SessionProvider, useSession } from 'next-auth/react';
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      setUser(firebaseUser);
-      setLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
-
-  return <AuthContext.Provider value={{ user, loading }}>{children}</AuthContext.Provider>;
+  return <SessionProvider>{children}</SessionProvider>;
 }
+
+export const useAuth = () => {
+  const { data: session, status } = useSession();
+
+  return {
+    user: session?.user || null,
+    loading: status === 'loading',
+  };
+};

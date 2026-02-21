@@ -21,7 +21,7 @@ export default function SubjectsPage() {
 
       <Grid container spacing={3}>
         {SUBJECTS.map((subject) => (
-          <Grid item xs={12} sm={6} md={4} key={subject.id}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={subject.id}>
             <Card
               elevation={2}
               sx={{
