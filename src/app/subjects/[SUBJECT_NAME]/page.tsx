@@ -59,17 +59,21 @@ export default function SubjectTrainersPage() {
                 sx={{
                   borderRadius: 3,
                   transition: '0.2s',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
                   '&:hover': { transform: 'translateY(-2px)' },
                 }}
               >
                 <CardActionArea
                   onClick={() => router.push(`/subjects/${SUBJECT_NAME}/${trainer.id}`)}
+                  sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}
                 >
-                  <CardContent sx={{ p: 3 }}>
+                  <CardContent sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                     <Typography variant="h5" fontWeight="bold" gutterBottom>
                       {t(trainer.titleKey, { defaultValue: trainer.id.toUpperCase() })}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2, flexGrow: 1 }}>
                       {t(trainer.descKey, { defaultValue: 'Practice your skills.' })}
                     </Typography>
 
@@ -79,7 +83,7 @@ export default function SubjectTrainersPage() {
                         color="primary"
                         size="small"
                         onClick={(e) => handleCreateRoom(trainer.id, e)}
-                        sx={{ mt: 2 }}
+                        sx={{ mt: 2, alignSelf: 'flex-start' }}
                       >
                         {t('subjects.createRoomBtn', { defaultValue: 'Create Room' })}
                       </Button>
