@@ -147,7 +147,7 @@ export default function Navbar() {
                 <MenuItem
                   onClick={() => {
                     handleUserMenuClose();
-                    signOut({ callbackUrl: '/' });
+                    signOut({ redirectTo: '/' });
                   }}
                 >
                   {t('nav.signOut', { defaultValue: '🚪 Sign Out' })}
@@ -159,7 +159,13 @@ export default function Navbar() {
               <Tooltip title={t('nav.signIn', { defaultValue: 'Sign in as Teacher' })}>
                 <IconButton
                   color="inherit"
-                  onClick={() => signIn('google', { callbackUrl: '/subjects' })}
+                  onClick={async () => {
+                    try {
+                      await signIn('google', { redirectTo: '/subjects' });
+                    } catch (error) {
+                      console.error('Login failed', error);
+                    }
+                  }}
                   sx={{ fontSize: '1.3rem', width: 40, height: 40 }}
                 >
                   👤

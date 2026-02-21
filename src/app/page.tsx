@@ -16,7 +16,7 @@ export default function Home() {
       return;
     }
     try {
-      await signIn('google', { callbackUrl: '/subjects' });
+      await signIn('google', { redirectTo: '/subjects' });
     } catch (error) {
       console.error('Login failed', error);
     }
