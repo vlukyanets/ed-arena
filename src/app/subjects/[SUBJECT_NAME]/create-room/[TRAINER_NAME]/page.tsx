@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/components/providers/AuthProvider';
+import BackButton from '@/components/BackButton';
 
 export default function CreateRoomPage() {
   const { SUBJECT_NAME, TRAINER_NAME } = useParams<{
@@ -37,6 +38,7 @@ export default function CreateRoomPage() {
         p: 3,
       }}
     >
+      <BackButton />
       <Paper elevation={3} sx={{ p: 5, borderRadius: 3, maxWidth: 500, width: '100%' }}>
         <Typography
           variant="h5"

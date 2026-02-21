@@ -8,6 +8,7 @@ type ThemeMode = 'light' | 'dark' | 'system';
 interface ThemeContextType {
   mode: ThemeMode;
   setMode: (mode: ThemeMode) => void;
+  resolvedMode: 'light' | 'dark';
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -69,7 +70,9 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <ThemeContext.Provider value={{ mode, setMode: changeMode }}>
+    <ThemeContext.Provider
+      value={{ mode, setMode: changeMode, resolvedMode: isDarkMode ? 'dark' : 'light' }}
+    >
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <Box

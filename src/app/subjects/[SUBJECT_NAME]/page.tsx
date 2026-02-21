@@ -3,6 +3,7 @@ import { Box, Typography, Card, CardActionArea, CardContent, Grid, Button } from
 import { useParams, useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/components/providers/AuthProvider';
+import BackButton from '@/components/BackButton';
 
 const TRAINERS: Record<string, { id: string; titleKey: string; descKey: string }[]> = {
   math: [
@@ -40,6 +41,7 @@ export default function SubjectTrainersPage() {
 
   return (
     <Box sx={{ p: 4, maxWidth: '1200px', mx: 'auto' }}>
+      <BackButton />
       <Typography variant="h4" gutterBottom fontWeight="bold" textTransform="capitalize">
         {SUBJECT_NAME} {t('subjects.trainersTitle', { defaultValue: 'Trainers' })}
       </Typography>

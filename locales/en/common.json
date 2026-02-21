@@ -1,12 +1,14 @@
 {
   "general": {
     "loading": "Loading...",
-    "error": "An error occurred"
+    "error": "An error occurred",
+    "back": "Back"
   },
   "home": {
     "roleSelection": {
       "title": "Welcome to Ed Arena",
       "teacher": "Login as Teacher",
+      "teacherContinue": "Continue as Teacher",
       "teacherTitle": "🏫 Teacher",
       "teacherDesc": "Create rooms, monitor student progress, and assign tests.",
       "studentRoom": "Enter Class via Code",
@@ -17,15 +19,33 @@
       "selfStudyDesc": "Practice independently without saving results."
     }
   },
+  "subjects": {
+    "title": "Select a Subject",
+    "list": {
+      "math": "Mathematics",
+      "physics": "Physics",
+      "history": "History"
+    },
+    "desc": {
+      "math": "Numbers, equations, geometry and more.",
+      "physics": "Forces, motion, energy and the universe.",
+      "history": "Events, civilisations and world heritage."
+    },
+    "trainersTitle": "Trainers",
+    "noTrainers": "No trainers found for this subject.",
+    "createRoomBtn": "Create Room"
+  },
   "nav": {
+    "signIn": "Sign in as Teacher",
+    "signOut": "🚪 Sign Out",
     "theme": {
-      "light": "☀️ Light",
-      "dark": "🌙 Dark",
-      "system": "💻 System"
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
     },
     "language": {
-      "en": "🇬🇧 English",
-      "uk": "🇺🇦 Ukrainian"
+      "en": "English",
+      "uk": "Ukrainian"
     }
   }
 }

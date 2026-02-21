@@ -69,7 +69,9 @@ export default function Home() {
             >
               {loading
                 ? t('general.loading', { defaultValue: 'Loading...' })
-                : t('home.roleSelection.teacher', { defaultValue: 'Login as Teacher' })}
+                : user
+                  ? t('home.roleSelection.teacherContinue', { defaultValue: 'Continue as Teacher' })
+                  : t('home.roleSelection.teacher', { defaultValue: 'Login as Teacher' })}
             </Button>
           </Paper>
         </Grid>

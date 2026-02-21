@@ -2,11 +2,12 @@
 import { Box, Typography, Grid, Card, CardContent, CardActionArea } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
+import BackButton from '@/components/BackButton';
 
 const SUBJECTS = [
-  { id: 'math', icon: '📐', translationKey: 'subjects.list.math' },
-  { id: 'physics', icon: '⚡', translationKey: 'subjects.list.physics' },
-  { id: 'history', icon: '🌍', translationKey: 'subjects.list.history' },
+  { id: 'math', icon: '📐' },
+  { id: 'physics', icon: '⚡' },
+  { id: 'history', icon: '🌍' },
 ];
 
 export default function SubjectsPage() {
@@ -15,6 +16,7 @@ export default function SubjectsPage() {
 
   return (
     <Box sx={{ p: 4, maxWidth: '1200px', mx: 'auto' }}>
+      <BackButton />
       <Typography variant="h4" component="h1" gutterBottom fontWeight="bold" sx={{ mb: 4 }}>
         {t('subjects.title', { defaultValue: 'Select a Subject' })}
       </Typography>
@@ -27,20 +29,27 @@ export default function SubjectsPage() {
               sx={{
                 borderRadius: 3,
                 transition: '0.2s',
+                height: '100%',
                 '&:hover': { transform: 'translateY(-4px)', boxShadow: 6 },
               }}
             >
-              <CardActionArea onClick={() => router.push(`/subjects/${subject.id}`)}>
+              <CardActionArea
+                onClick={() => router.push(`/subjects/${subject.id}`)}
+                sx={{ height: '100%' }}
+              >
                 <CardContent
                   sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 4 }}
                 >
                   <Typography variant="h1" sx={{ mb: 2 }}>
                     {subject.icon}
                   </Typography>
-                  <Typography variant="h6" fontWeight="bold">
-                    {t(subject.translationKey, {
+                  <Typography variant="h6" fontWeight="bold" gutterBottom>
+                    {t(`subjects.list.${subject.id}`, {
                       defaultValue: subject.id.charAt(0).toUpperCase() + subject.id.slice(1),
                     })}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" textAlign="center">
+                    {t(`subjects.desc.${subject.id}`, { defaultValue: '' })}
                   </Typography>
                 </CardContent>
               </CardActionArea>
