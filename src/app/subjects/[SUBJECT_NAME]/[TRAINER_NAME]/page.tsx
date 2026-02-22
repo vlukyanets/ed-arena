@@ -9,6 +9,11 @@ export default function IndependentTrainerPage() {
   }>();
 
   return (
-    <TrainerInteractive title={`${SUBJECT_NAME} - ${TRAINER_NAME}`} type="text" isRoom={false} />
+    <TrainerInteractive
+      subjectName={SUBJECT_NAME}
+      trainerName={TRAINER_NAME}
+      type="text"
+      isRoom={false}
+    />
   );
 }

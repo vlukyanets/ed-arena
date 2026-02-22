@@ -85,7 +85,7 @@ export default function Navbar() {
           <IconButton
             color="inherit"
             onClick={handleLangMenuOpen}
-            sx={{ fontSize: '1.3rem', width: 40, height: 40 }}
+            sx={{ fontSize: '1.3rem', width: 40, height: 40, p: 0.5 }}
           >
             {currentFlag}
           </IconButton>
@@ -100,7 +100,7 @@ export default function Navbar() {
           <IconButton
             color="inherit"
             onClick={handleThemeMenuOpen}
-            sx={{ fontSize: '1.3rem', width: 40, height: 40 }}
+            sx={{ fontSize: '1.3rem', width: 40, height: 40, p: 0.5 }}
           >
             {themeIcon}
           </IconButton>
@@ -121,7 +121,7 @@ export default function Navbar() {
           {user ? (
             <>
               <Tooltip title={user.name ?? user.email ?? ''}>
-                <IconButton onClick={handleUserMenuOpen} sx={{ p: 0 }}>
+                <IconButton onClick={handleUserMenuOpen} sx={{ width: 40, height: 40, p: 0.5 }}>
                   <Avatar
                     src={user.image ?? undefined}
                     alt={user.name ?? 'Teacher'}
@@ -160,7 +160,7 @@ export default function Navbar() {
                       console.error('Login failed', error);
                     }
                   }}
-                  sx={{ fontSize: '1.3rem', width: 40, height: 40 }}
+                  sx={{ fontSize: '1.3rem', width: 40, height: 40, p: 0.5 }}
                 >
                   👤
                 </IconButton>
