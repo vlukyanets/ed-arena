@@ -1,5 +1,5 @@
 'use client';
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import TrainerInteractive from '@/components/TrainerInteractive';
 
 export default function IndependentTrainerPage() {
@@ -7,6 +7,8 @@ export default function IndependentTrainerPage() {
     SUBJECT_NAME: string;
     TRAINER_NAME: string;
   }>();
+  const searchParams = useSearchParams();
+  const isSelfStudy = searchParams.get('mode') === 'self-study';
 
   return (
     <TrainerInteractive
@@ -14,6 +16,7 @@ export default function IndependentTrainerPage() {
       trainerName={TRAINER_NAME}
       type="text"
       isRoom={false}
+      hasCreateRoomButton={!isSelfStudy}
     />
   );
 }

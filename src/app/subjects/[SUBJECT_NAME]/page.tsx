@@ -47,7 +47,7 @@ export default function SubjectTrainersPage() {
     <Box sx={{ p: 4, maxWidth: '1200px', mx: 'auto' }}>
       <BackButton />
       <Typography variant="h4" gutterBottom fontWeight="bold">
-        {subjectTitle} {t('subjects.trainersTitle', { defaultValue: 'Trainers' })}
+        {subjectTitle} - {t('subjects.trainersTitle', { defaultValue: 'Trainers' })}
       </Typography>
 
       {trainers.length === 0 ? (
@@ -70,7 +70,7 @@ export default function SubjectTrainersPage() {
                 }}
               >
                 <CardActionArea
-                  onClick={() => router.push(`/subjects/${SUBJECT_NAME}/${trainer.id}`)}
+                  onClick={() => router.push(`/subjects/${SUBJECT_NAME}/${trainer.id}${isSelfStudy ? '?mode=self-study' : ''}`)}
                   sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}
                 >
                   <CardContent sx={{ p: 3, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>

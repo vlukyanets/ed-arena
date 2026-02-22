@@ -11,6 +11,7 @@ interface TrainerInteractiveProps {
   type: 'text' | 'numpad' | 'singleChoice' | 'multipleChoice';
   onFinish?: (score: number) => void;
   isRoom?: boolean;
+  hasCreateRoomButton?: boolean;
 }
 
 export default function TrainerInteractive({
@@ -20,6 +21,7 @@ export default function TrainerInteractive({
   type,
   onFinish,
   isRoom,
+  hasCreateRoomButton,
 }: TrainerInteractiveProps) {
   const { t } = useTranslation();
   const [answer, setAnswer] = useState('');
