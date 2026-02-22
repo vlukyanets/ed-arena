@@ -1,6 +1,6 @@
 'use client';
 import { Box, Typography, Card, CardActionArea, CardContent, Grid, Button } from '@mui/material';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/components/providers/AuthProvider';
 import BackButton from '@/components/BackButton';
@@ -29,6 +29,8 @@ const TRAINERS: Record<string, { id: string; titleKey: string; descKey: string }
 
 export default function SubjectTrainersPage() {
   const { SUBJECT_NAME } = useParams<{ SUBJECT_NAME: string }>();
+  const searchParams = useSearchParams();
+  const isSelfStudy = searchParams.get('mode') === 'self-study';
   const router = useRouter();
   const { t } = useTranslation();
   const { user } = useAuth();
@@ -39,11 +41,13 @@ export default function SubjectTrainersPage() {
     router.push(`/subjects/${SUBJECT_NAME}/create-room/${trainerId}`);
   };
 
+  const subjectTitle = t(`subjects.list.${SUBJECT_NAME}`, { defaultValue: SUBJECT_NAME });
+
   return (
     <Box sx={{ p: 4, maxWidth: '1200px', mx: 'auto' }}>
       <BackButton />
-      <Typography variant="h4" gutterBottom fontWeight="bold" textTransform="capitalize">
-        {SUBJECT_NAME} {t('subjects.trainersTitle', { defaultValue: 'Trainers' })}
+      <Typography variant="h4" gutterBottom fontWeight="bold">
+        {subjectTitle} {t('subjects.trainersTitle', { defaultValue: 'Trainers' })}
       </Typography>
 
       {trainers.length === 0 ? (
@@ -77,7 +81,7 @@ export default function SubjectTrainersPage() {
                       {t(trainer.descKey, { defaultValue: 'Practice your skills.' })}
                     </Typography>
 
-                    {user && (
+                    {user && !isSelfStudy && (
                       <Button
                         variant="contained"
                         color="primary"

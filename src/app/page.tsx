@@ -140,7 +140,7 @@ export default function Home() {
               variant="contained"
               color="success"
               fullWidth
-              onClick={() => router.push('/subjects')}
+              onClick={() => router.push('/subjects?mode=self-study')}
               sx={{ py: 1.5, borderRadius: 2 }}
             >
               {t('home.roleSelection.studentSelf', { defaultValue: 'Self Study' })}
