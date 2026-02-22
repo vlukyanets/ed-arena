@@ -1,6 +1,6 @@
 'use client';
 import { Box, Typography, Grid, Card, CardContent, CardActionArea } from '@mui/material';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import BackButton from '@/components/BackButton';
 
@@ -12,7 +12,10 @@ const SUBJECTS = [
 
 export default function SubjectsPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { t } = useTranslation();
+  const mode = searchParams.get('mode');
+  const queryString = mode ? `?mode=${mode}` : '';
 
   return (
     <Box sx={{ p: 4, maxWidth: '1200px', mx: 'auto' }}>
@@ -34,7 +37,7 @@ export default function SubjectsPage() {
               }}
             >
               <CardActionArea
-                onClick={() => router.push(`/subjects/${subject.id}`)}
+                onClick={() => router.push(`/subjects/${subject.id}${queryString}`)}
                 sx={{ height: '100%' }}
               >
                 <CardContent

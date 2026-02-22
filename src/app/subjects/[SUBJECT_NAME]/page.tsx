@@ -47,7 +47,7 @@ export default function SubjectTrainersPage() {
     <Box sx={{ p: 4, maxWidth: '1200px', mx: 'auto' }}>
       <BackButton />
       <Typography variant="h4" gutterBottom fontWeight="bold">
-        {subjectTitle} - {t('subjects.trainersTitle', { defaultValue: 'Trainers' })}
+        {subjectTitle} {t('subjects.trainersTitle', { defaultValue: 'Trainers' })}
       </Typography>
 
       {trainers.length === 0 ? (
